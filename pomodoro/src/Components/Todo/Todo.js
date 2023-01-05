@@ -7,6 +7,10 @@ const Todo = ({ title, time }) => {
   const deleteHandler = () => {
     dispatch(todoActions.delete(title));
   };
+  const editHandler = () => {
+    const newTitle = prompt("바꿀 이름을 입력해주세요!");
+    dispatch(todoActions.edit({ title, newTitle }));
+  };
   return (
     <article className={classes["todo"]}>
       <div>
@@ -15,7 +19,7 @@ const Todo = ({ title, time }) => {
       </div>
       <div className={classes["button-list"]}>
         <button>START</button>
-        <button>EDIT</button>
+        <button onClick={editHandler}>EDIT</button>
         <button onClick={deleteHandler}>DELETE</button>
       </div>
     </article>
