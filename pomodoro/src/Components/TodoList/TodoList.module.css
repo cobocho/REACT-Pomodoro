@@ -1,4 +1,5 @@
 .todo-list {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,5 +12,25 @@
 }
 
 .todo-list h2 {
-  margin: 10px;
+  position: relative;
+  display: inline-block;
+  margin: 0;
+}
+
+.plus {
+  position: absolute;
+  display: inline-block;
+  border: none;
+  background: none;
+  color: gray;
+  font-size: 2em;
+  text-align: left;
+  padding: 0;
+  margin-right: 14px;
+  top: px;
+  right: 10px;
+}
+
+.todo-list button:hover {
+  cursor: pointer;
 }

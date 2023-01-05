@@ -1,16 +1,22 @@
 import classes from "./Todo.module.css";
+import { useDispatch } from "react-redux";
+import { todoActions } from "../../store/todo-slice";
 
-const Todo = (props) => {
+const Todo = ({ title, time }) => {
+  const dispatch = useDispatch();
+  const deleteHandler = () => {
+    dispatch(todoActions.delete(title));
+  };
   return (
     <article className={classes["todo"]}>
       <div>
-        <strong>React</strong>
-        <h4>50:30</h4>
+        <strong>{title}</strong>
+        <h4>{time}</h4>
       </div>
       <div className={classes["button-list"]}>
         <button>START</button>
-        <button>STOP</button>
         <button>EDIT</button>
+        <button onClick={deleteHandler}>DELETE</button>
       </div>
     </article>
   );

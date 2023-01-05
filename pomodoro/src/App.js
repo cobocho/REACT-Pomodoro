@@ -1,16 +1,17 @@
 import Header from "./Components/Header/Header";
 import Timer from "./Components/Timer/Timer";
 import TodoList from "./Components/TodoList/TodoList";
+import store from "./store/store";
 
-import { Fragment } from "react";
+import { Provider } from "react-redux";
 
 function App() {
   return (
-    <Fragment>
+    <Provider store={store}>
       <Header />
       <Timer />
       <TodoList />
-    </Fragment>
+    </Provider>
   );
 }
 
