@@ -8,7 +8,7 @@ const Todo = ({ title, time }) => {
   const dispatch = useDispatch();
 
   const setHandler = () => {
-    dispatch(timerActions.changeTime(time));
+    dispatch(timerActions.setTimer(time));
   };
 
   const deleteHandler = () => {

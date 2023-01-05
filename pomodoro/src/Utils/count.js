@@ -11,7 +11,7 @@ const counter = (time) => {
     if (min.length === 1 || min[0] === "0" || min === "10")
       changeMin = `0${changeMin}`;
     if (+min > 0) return `${changeMin} : ${"59"}`;
-    else return "00: 00";
+    else return "00 : 00";
   }
 };
 
