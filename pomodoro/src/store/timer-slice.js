@@ -1,14 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
+import counter from "../Utils/count";
 
 const timerSlice = createSlice({
   name: "timer",
   initialState: {
-    timer: "00 : 00",
+    time: "00 : 00",
   },
   reducers: {
-    setTimer: (state, actions) => {
-      console.log("setting");
-      state.timer = actions.payload;
+    changeTime: (state, actions) => {
+      state.time = actions.payload;
+    },
+    count: (state) => {
+      state.time = counter(state.time);
     },
   },
 });

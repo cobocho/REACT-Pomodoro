@@ -7,7 +7,7 @@
   height: 20vw;
   border-radius: 20px;
   background: linear-gradient(145deg, #e6e6e6, #ffffff);
-  box-shadow:  19px 19px 32px #d1d1d1, -19px -19px 32px #ffffff;
+  box-shadow:  19px 19px 12px #d1d1d1, -19px -19px 32px #ffffff;
   margin-bottom: 40px;
 }
 
@@ -15,5 +15,5 @@
   margin: 0;
   font-size: 15vw;
   color: #7a7a7a;
-  text-shadow:3px 3px white, -3px -3px #666;
+  text-shadow:1px 1px white, -1px -1px #666;
 }
