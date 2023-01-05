@@ -14,33 +14,19 @@
   margin: 0;
   width: auto;
   display: inline-block;
-  font-size: 40px;
+  font-size: 7vw;
   margin-right: 10px;
 }
 
 .todo h4 {
   color: gray;
+  text-shadow:1px 1px white, -1px -1px #666;
   margin: 0;
   display: inline-block;
-  font-size: 20px;
+  font-size: 4vw;
 }
 
 .button-list {
   display: flex;
   justify-content: flex-end;
-}
-
-.todo button {
-  display: inline-block;
-  border: none;
-  background: none;
-  color: gray;
-  font-size: 3vw;
-  text-align: left;
-  padding: 0;
-  margin-right: 10px;
-}
-
-.todo button:hover {
-  cursor: pointer;
 }

@@ -1,9 +1,11 @@
 import classes from "./Timer.module.css";
+import { useSelector } from "react-redux";
 
 const Timer = (props) => {
+  const timer = useSelector((state) => state.timer.timer);
   return (
     <section className={classes.timer}>
-      <strong>00 : 00</strong>
+      <p className={classes.time}>{timer}</p>
     </section>
   );
 };

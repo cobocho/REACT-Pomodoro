@@ -1,7 +1,7 @@
 import Header from "./Components/Header/Header";
 import Timer from "./Components/Timer/Timer";
 import TodoList from "./Components/TodoList/TodoList";
-import store from "./store/store";
+import store from "./store/index";
 
 import { Provider } from "react-redux";
 
