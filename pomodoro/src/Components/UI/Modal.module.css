@@ -13,10 +13,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: fixed;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: gray;
   font-size: 1.2em;
-  top: 20vh;
   width: 60%;
   background-color: white;
   border-radius: 14px;

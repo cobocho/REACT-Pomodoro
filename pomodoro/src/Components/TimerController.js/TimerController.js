@@ -10,6 +10,7 @@ const TimerController = () => {
   const currentTime = useSelector((state) => state.timer.time);
 
   const startHandler = () => {
+    console.log("start");
     if (currentTime === "00 : 00") return;
     dispatch(timerActions.toggleActive());
     dispatch(

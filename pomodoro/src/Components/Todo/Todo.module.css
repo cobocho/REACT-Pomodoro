@@ -1,6 +1,7 @@
 .todo {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 90%;
   min-height: 6vh;
   border-radius: 20px;
