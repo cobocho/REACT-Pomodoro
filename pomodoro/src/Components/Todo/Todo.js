@@ -4,7 +4,7 @@ import { todoActions } from "../../store/todo-slice";
 import { timerActions } from "../../store/timer-slice";
 import Button from "../UI/Button";
 
-const Todo = ({ title, time }) => {
+const Todo = ({ title, time, onModalOpen }) => {
   const dispatch = useDispatch();
 
   const setHandler = () => {
@@ -16,8 +16,7 @@ const Todo = ({ title, time }) => {
   };
 
   const editHandler = () => {
-    const newTitle = prompt("바꿀 이름을 입력해주세요!");
-    dispatch(todoActions.edit({ title, newTitle }));
+    onModalOpen();
   };
 
   return (

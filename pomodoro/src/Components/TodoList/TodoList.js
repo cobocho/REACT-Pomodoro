@@ -26,7 +26,14 @@ const TodoList = (props) => {
 
   if (todos.length > 0) {
     todoContent = todos.map((todo, idx) => {
-      return <Todo key={idx} title={todo.title} time={todo.time} />;
+      return (
+        <Todo
+          key={idx}
+          title={todo.title}
+          time={todo.time}
+          onModalOpen={props.onModalOpen}
+        />
+      );
     });
   }
 

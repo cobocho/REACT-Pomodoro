@@ -4,16 +4,19 @@
   justify-content: center;
   align-items: center;
   width: 70%;
+  max-width: 700px;
   height: 20vw;
+  max-height: 200px;
   border-radius: 20px;
   background: linear-gradient(145deg, #e6e6e6, #ffffff);
-  box-shadow:  19px 19px 12px #d1d1d1, -19px -19px 32px #ffffff;
+  box-shadow:  16px 16px 60px #d1d1d1, -16px -16px 60px #ffffff;
   margin-bottom: 40px;
 }
 
 .time {
   margin: 0;
-  font-size: 15vw;
-  color: #7a7a7a;
+  font-family: DS-Digital;
+  font-size: 13vw;
+  color: #434242;
   text-shadow:1px 1px white, -1px -1px #666;
 }
