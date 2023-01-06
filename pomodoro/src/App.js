@@ -3,9 +3,9 @@ import Timer from "./Components/Timer/Timer";
 import TimerController from "./Components/TimerController.js/TimerController";
 import TodoList from "./Components/TodoList/TodoList";
 import store from "./store/index";
-import TodoEditor from "./Components/Todo/TodoEditor";
+import TodoEditor from "./Components/TodoEditor/TodoEditor";
 
-import { Provider, useSelector } from "react-redux";
+import { Provider } from "react-redux";
 import { useState } from "react";
 
 function App() {

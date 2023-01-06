@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import classes from "./TodoList.module.css";
 
 import Todo from "../Todo/Todo";
+import { modalActions } from "../../store/modal-slice";
 
 const TodoList = (props) => {
   const dispatch = useDispatch();
@@ -12,12 +13,11 @@ const TodoList = (props) => {
   useEffect(() => {
     const initTodos = JSON.parse(localStorage.getItem("todos"));
     if (initTodos) dispatch(todoActions.setup(initTodos));
-  }, []);
+  }, [dispatch]);
 
   const addHandler = () => {
-    const title = prompt("할 일을 적어주세요!");
-    const time = prompt("집중 시간을 입력해주세요!");
-    dispatch(todoActions.add({ title, time }));
+    dispatch(modalActions.changeMode("add"));
+    props.onModalOpen();
   };
 
   const todos = useSelector((state) => state.todo.todos);
@@ -25,10 +25,11 @@ const TodoList = (props) => {
   let todoContent = <p>Nothing</p>;
 
   if (todos.length > 0) {
-    todoContent = todos.map((todo, idx) => {
+    todoContent = todos.map((todo) => {
       return (
         <Todo
-          key={idx}
+          key={todo.id}
+          id={todo.id}
           title={todo.title}
           time={todo.time}
           onModalOpen={props.onModalOpen}

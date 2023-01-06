@@ -3,8 +3,9 @@ import { useDispatch } from "react-redux";
 import { todoActions } from "../../store/todo-slice";
 import { timerActions } from "../../store/timer-slice";
 import Button from "../UI/Button";
+import { modalActions } from "../../store/modal-slice";
 
-const Todo = ({ title, time, onModalOpen }) => {
+const Todo = ({ id, title, time, onModalOpen }) => {
   const dispatch = useDispatch();
 
   const setHandler = () => {
@@ -12,10 +13,12 @@ const Todo = ({ title, time, onModalOpen }) => {
   };
 
   const deleteHandler = () => {
-    dispatch(todoActions.delete(title));
+    dispatch(todoActions.delete(id));
   };
 
   const editHandler = () => {
+    dispatch(modalActions.changeMode("edit"));
+    dispatch(todoActions.setEditedId(id));
     onModalOpen();
   };
 

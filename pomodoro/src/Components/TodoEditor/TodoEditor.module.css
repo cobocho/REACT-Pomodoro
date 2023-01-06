@@ -9,8 +9,14 @@
   border-radius: 12px;
   border: none;
   background: #ffffff;
-  background: #ffffff;
+  text-align: center;
+  font-size: 20px;
   box-shadow: inset 6px 6px 12px #d1d1d1, inset -6px -6px 12px #ffffff;
+}
+
+
+.todo-editor input.invalid {
+  background-color: rgba(182, 182, 182, 0.8);
 }
 
 .todo-title {

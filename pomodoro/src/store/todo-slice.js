@@ -4,6 +4,7 @@ const todoSlice = createSlice({
   name: "todo",
   initialState: {
     todos: [],
+    editTargetId: null,
   },
   reducers: {
     add: (state, action) => {
@@ -13,14 +14,17 @@ const todoSlice = createSlice({
     },
     delete: (state, action) => {
       state.todos = state.todos.filter((todo) => {
-        return todo.title !== action.payload;
+        return todo.id !== action.payload;
       });
       localStorage.setItem("todos", JSON.stringify(state.todos));
     },
+    setEditedId: (state, action) => {
+      state.editTargetId = action.payload;
+    },
     edit: (state, action) => {
       state.todos = state.todos.map((todo) => {
-        if (todo.title === action.payload.title) {
-          todo.title = action.payload.newTitle;
+        if (todo.id === action.payload.id) {
+          todo = action.payload.changedTodo;
         }
         return todo;
       });
