@@ -2,7 +2,7 @@ import Modal from "../UI/Modal";
 
 import classes from "./TodoEditor.module.css";
 import Button from "../UI/Button";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import timerIsValid from "../../Utils/validatior";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,8 +18,6 @@ const TodoEditor = (props) => {
   const [secValidation, setSecValidation] = useState(true);
 
   const dispatch = useDispatch();
-
-  const todoLength = useSelector((state) => state.todo.todos).length;
 
   const modalMode = useSelector((state) => state.modal.mode);
 
@@ -44,7 +42,7 @@ const TodoEditor = (props) => {
   const clickHandler = (event) => {
     event.preventDefault();
 
-    const id = `todo${todoLength + 1}`;
+    const id = `todo${Math.random()}`;
 
     const todo = {
       title,
@@ -62,7 +60,6 @@ const TodoEditor = (props) => {
 
     if (titleIsValid && MinIsValid && SecIsValid) {
       if (modalMode === "add") {
-        console.log(todo);
         dispatch(todoActions.add(todo));
       }
       if (modalMode === "edit") {
@@ -78,6 +75,26 @@ const TodoEditor = (props) => {
     }
   };
 
+  const titleRef = useRef();
+  const minRef = useRef();
+  const secRef = useRef();
+
+  const edittedTime = useSelector((state) => state.timer.settedTime);
+  const currentTitle = useSelector((state) => state.timer.title);
+  const [currentMin, currentSec] = edittedTime.split(" : ");
+
+  useEffect(() => {
+    if (modalMode === "edit") {
+      titleRef.current.value = currentTitle;
+      minRef.current.value = currentMin;
+      secRef.current.value = currentSec;
+
+      setTitle(currentTitle);
+      setMin(currentMin);
+      setSec(currentSec);
+    }
+  }, []);
+
   return (
     <Modal onClose={props.onClose}>
       <h2>TO DO EDIT</h2>
@@ -85,6 +102,7 @@ const TodoEditor = (props) => {
         <div className={classes["todo-title"]}>
           <label htmlFor="todo-title-input">TITLE</label>
           <input
+            ref={titleRef}
             type="text"
             id="todo-title-input"
             onChange={titleChangehandler}
@@ -95,6 +113,7 @@ const TodoEditor = (props) => {
         <div className={classes["todo-timer"]}>
           <label htmlFor="minute-input">MINUTE</label>
           <input
+            ref={minRef}
             onChange={minChangehandler}
             type="text"
             id="minute-input"
@@ -103,6 +122,7 @@ const TodoEditor = (props) => {
           {!minValidation && <p>Please enter a valid minute (0~99)</p>}
           <label htmlFor="second-input">SECOND</label>
           <input
+            ref={secRef}
             onChange={secChangehandler}
             type="text"
             id="second-input"

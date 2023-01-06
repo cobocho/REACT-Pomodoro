@@ -9,7 +9,7 @@ const Todo = ({ id, title, time, onModalOpen }) => {
   const dispatch = useDispatch();
 
   const setHandler = () => {
-    dispatch(timerActions.setTimer(time));
+    dispatch(timerActions.setTimer({ time, title }));
   };
 
   const deleteHandler = () => {
@@ -19,6 +19,7 @@ const Todo = ({ id, title, time, onModalOpen }) => {
   const editHandler = () => {
     dispatch(modalActions.changeMode("edit"));
     dispatch(todoActions.setEditedId(id));
+    dispatch(timerActions.setEditData({ title, time }));
     onModalOpen();
   };
 
